@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>The Assignment6</title>
-    </head>
  
+    <head>
+        <title>Jai Balayya</title>
+    </head>
 <body>
-<h1>Pass phrase by Sai Gadiparthi</h1>
-<h2>Getting input</h2>
-
-<form>
-    <label for="secret_phrase">Enter the secret phrase </label>
-    <input type ="password" id="secret_phrase" name="secret_phrase" value="Let me in"> <br>
-
-    <label for="check_phrase">Enter a phrase </label>
-    <input type ="text" id="check_phrase" name="check_phrase" autofocus> <br>
-
-    <input type="button" onclick="processPhrase()" value="Check the phrase">
-</form>
-
-
-<p id="result">This text will be replaced </p>
-
-<script> 
- var correct=0;
- var wrong=0;
-
-function processPhrase(){
-    console.log("Getting form values")
-    secret_phrase = document.getElementById("secret_phrase").value
-    check_phrase = document.getElementById("check_phrase").value
+    <h2>Pass phrase by saikrishna Gadiparthi</h2>
+    <form>
+        <label for="Secret_Phrase">Enter the secret phrase</label>
+        <input type="password" id="Secret_Phrase" name="Secret_Phrase" value="Let me in" />
+        <br>
+        <br>
+        <label for="Enter_Phrase">Enter a phrase </label>
+        <input type ="text" id="Enter_Phrase" name="Enter_Phrase" autofocus> 
+        <br>
+        <br>
+        <input type="button" onclick="processPhrase()" value="Check the phrase">
+    </form>
     
+    <p id="result">This result will be displayed!!</p>
+        <script> 
+            var correct = 0;
+            var wrong = 0;
     
-    out = document.getElementById("result")
-    if(secret_phrase == check_phrase)
-    {
-        correct += 1
-        alert("Access allowed.")
-        out.innerHTML = "Correct Count: " + correct
-    }
-     else  
-     {
-        wrong += 1
-        alert("Access denied.")
-        out.innerHTML = "Wrong Count: " + wrong
-     }
-     
-}
-</script>
-
+        function processPhrase (){
+            console.log("Getting form values")
+            Secret_Phrase = document.getElementById("Secret_Phrase").value
+            Enter_Phrase = document.getElementById("Enter_Phrase").value
+            confirmed = confirm("Check the values? "+Secret_Phrase+" and "+Enter_Phrase)    
+            out = document.getElementById("result")
+            if(Secret_Phrase == Enter_Phrase){
+                correct = correct+1;
+                alert("Access allowed!!");
+                out.innerHTML = "Correct count : "+correct + "<br>"+ "Wrong count : "+wrong;
+            } else {
+                wrong = wrong + 1
+                alert("Access denied!!");
+                out.innerHTML = "Correct count : "+correct + "<br>"+ "Wrong count : "+wrong;
+            }
+        }
+        </script>
+    <div class="container">
+        <img id ="Nemo" src="Nemo_sq.png" onclick="newImage()" height="200" weight="200">    
+        <script>
+            var usingImage=1;
+            function newImage(){
+                switch(usingImage){
+                    case 1:                        
+                        var x=document.getElementById("Nemo").src="Nemo_sq.png";                        
+                        usingImage++;
+                        break;
+    
+                    case 2:
+                        var y=document.getElementById("Nemo").src="Lion_sq.jpg"
+                        usingImage++;
+                        break;
+    
+                    case 3:
+                        var z=document.getElementById("Nemo").src="Giraffe_sq.jpg";                        
+                        usingImage=1;
+                        break;
+                }
+        }
+        </script>    
+    </div>
+   
 </body>
-</html>
+</html> 
