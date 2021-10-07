@@ -2,38 +2,111 @@
 <html>
  
 <body>
+    <h1>Sai Krishna computes</h1>
 
 <h2>Getting input</h2>
 
-<form>
+<form></form>
     <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=25> <br>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
 
     <label for="form1_nick">What is your nickname </label>
     <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
     <input type="button" onclick="resolveForm()" value="Get values from form">
+    <br>
+    <hr>
+    <label for="initial" >Enter a base</label>
+    <input type="number" id="initial"name="initial" vlaue=10><br>
+    <label for="expo ele">Enter an exponent.</label>
+    <input type="number" id="expo ele" name="expo ele" value=2><br>
+    <input type="button" onclick="powers()" value="Compute" placeholder="expo value">
+    
+
+
+</form>
+<form>
+    <label for="1st">+</label>
+    <input type="radio" id="1st"
+     value="plus" name="all">
+    <label for="2nd">-</label >
+    <input type="radio" id="2nd" 
+    value="minus" name="all" >
+    <label for="3rd">*</label>
+    <input type="radio" id="3rd" 
+    value="times" name="all">
+    <label for="4th">/</label>
+    <input type="radio" id="4th" 
+    value="divide" name="all" >
+    <br>
+    <input type="button" onclick="processRadio()" value="GetValue">
+    
 </form>
 
+    
 
-<p id="result">This text will be replaced </p>
+
+
+<br>
+<hr>
+<p id="output">Output will change </p>
 
 <script> 
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    function resolveForm (){
+        console.log("Getting form values")
+        age = document.getElementById("form1_age").value
+        nick = document.getElementById("form1_nick").value
+        confirmed = confirm("Are these the values? "+age+" and "+nick)
+        
+        out = document.getElementById("output")
+        if(confirmed){
+            out.innerHTML = "Values were confirmed"
+        } else {
+            out.innerHTML = "Values were not confirmed"
+        }
+        
     }
-}
-</script>
+    function powers()
+    {
+        var res=" "
+        var a=document.getElementById("initial").value
+        var b=document.getElementById("expo ele").value
+        for(var i=1;i<=b;i++)
+        {
+            res=res+a**i+" "
+        }
+
+        output.innerHTML=res
+    }
+    function processRadio()
+    {
+        
+        var a=document.getElementById("initial").value
+        var b=document.getElementById("expo ele").value
+        let er=document.getElementById("1st").checked
+        let ef=document.getElementById("2nd").checked
+        let eg=document.getElementById("3rd").checked
+        let ei=document.getElementById("4th").checked
+        confirmed=confirm("Are these the values? "+er+" and "+ef+" and "+eg+" and "+ei)
+        let out=document.getElementById("output")
+        if(document.getElementById("1st").checked)
+        {
+           out.innerHTML=(Number)(a)+(Number)(b)
+        }
+        else if (ef) {
+            out.innerHTML=a-b
+            
+        } else if(eg) {
+            out.innerHTML=a*b
+        }
+        else{
+            out.innerHTML=a/b
+        }
+
+
+    }
+    </script>
 
 </body>
 </html> 

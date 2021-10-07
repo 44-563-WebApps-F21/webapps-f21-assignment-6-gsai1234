@@ -1,36 +1,84 @@
 <!DOCTYPE html>
 <html>
- 
+ <head>
+     <title>Page about Java Script</title>
+     
+ </head>
 <body>
+ <header>
+     <h1>Pass phrase by Radhika Ganta</h1>
+ </header>
 
 <h2>Getting input</h2>
 
 <form>
-    <label for="Base_form">Enter a base</label>
-    <input type ="number" id="form1_baseElement" name="Base_form" min=10 max=50 step=2 value=30> <br>
-
-    <label for="Exponent_form">Enter an Exponent</label>
-    <input type ="text" id="form1_exponentElement" name="Exponent_form" min=2 autofocus> <br>
-
-    <input type="button" onclick="powers()" value=" Compute">
+    <label for ="pwd">Enter the secret phrase</label>
+    <input type="password" id="pwd" name="pwd" value="Let me in" >
+    <label for ="texttype">Enter a phrase</label>
+    <input type="text" id="texttype" name="texttype">
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<div id="result">This is our results </div>
+<div class="container">
+    <img id="swit"src="rabbit.jpg" alt= pic of rabbit width="200" height="200" onclick="newImage()">
+    
+</div>
 
 <script> 
-    function powers(){
-        console.log("Getting form values")
-        base = document.getElementById("form1_baseElement").value
-        exponent = document.getElementById("form1_exponentElement").value
-        result=""    
-        out = document.getElementById("result")
-        for(var i=1;i<=exponent;i++){       
-                result=result+ Math.pow(base,i)+" ";
+let correct=0;
+let wrong=0;
+let usingImage=1;
+function processPhrase()
+{
+    console.log("Getting values of check &secret phrase")
+    cct=document.getElementById("pwd").value
+    rct=document.getElementById("texttype").value
+    out = document.getElementById("result")
+    if(cct==rct)
+    {
+        correct=correct+1
+        alert("Access Allowed")
+    }
+    else{
+        wrong=wrong+1
+        alert("Access Denied")
+    }
+    out.innerHTML="Correct count = "+correct+" Wrong count = "+wrong
+}
+function newImage()
+{
+    switch(usingImage)
+    {
+        case 1:
+            { 
+                
+                document.getElementById("swit").src="Tiger.jpg"
+                usingImage=2
+                alert("1st guess")
+            break
             }
-            out.innerHTML="Powers of "+base+" are: "+result;
+        case 2:
+            {
+                
+                document.getElementById("swit").src="giraffe.jpg"
+                usingImage=3
+                alert("2nd guess")
+          break
         }
-    </script>
+        case 3:
+            { 
+                
+                document.getElementById("swit").src="rabbit.jpg"
+                alert("3rd guess")
+            break
+            } 
+    }
+}
+</script>
+
+
 
 </body>
 </html> 
